@@ -1,0 +1,18 @@
+title: Arduino based BadUSB
+id: ea949ab7-647c-42cb-9e8c-b95ea95f85c9
+description: Detects arduino IDE based BadUSBs with PnP events
+status: experimental
+author: Jokin @joktotem
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 6416
+        Device Name:
+            - '*COM*'
+            - '*Arduino*'
+    condition: selection
+falsepositives:
+    - legit arduino devices
+level: high
