@@ -1,3 +1,7 @@
+title: Arduino based BadUSB
+description: Detects arduino IDE based BadUSBs with PnP events, susp sequence from Serial class device to HID
+author: Jokin @joktotem
+
 sequence by agent.id with maxspan=10s
  [event where winlog.event_id==6416 and (winlog.event_data.DeviceDescription : "*Arduino*" or winlog.event_data.DeviceDescription : "*COM*")] by winlog.event_data.ClassId
  [event where winlog.event_id==6416 and winlog.event_data.DeviceDescription : "HID*"] by winlog.event_data.ClassId
