@@ -1,0 +1,1 @@
+alert tcp any any -> $HOME_NET any (msg:"TOTEM RPC DCERPC NTLM auth"; flow:established,to_server; content:"NTLMSSP"; content:"|03 00 00 00|"; distance:0; app-layer-protocol:dcerpc; classtype: suspicious-login; sid:1000020; rev:1; metadata: mitre_tactic_id TA0008, mitre_technique_id T1021;)
